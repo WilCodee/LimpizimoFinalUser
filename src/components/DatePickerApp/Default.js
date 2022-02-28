@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {Stack, Text} from 'native-base';
 import {TouchableOpacity, Platform, View, StyleSheet} from 'react-native';
+import moment from 'moment';
 
 const Default = ({
   label,
@@ -9,6 +10,7 @@ const Default = ({
   onChange,
   iconCollection,
   iconName,
+  mode="date"
 }) => {
   const [date, setDate] = useState(null);
   const [show, setShow] = useState(false);
@@ -17,8 +19,17 @@ const Default = ({
     const currentDate = selectedDate || date;
     setShow(Platform.OS === 'ios');
     setDate(currentDate);
-    console.info('cd', currentDate);
-    onChange && onChange(currentDate);
+    if(mode==="date"){
+      onChange && onChange(currentDate);
+      return
+    }
+
+    if(mode==="time"){
+      let parsedDateToTime = currentDate.getHours() + ':' + currentDate.getMinutes()
+      onChange && onChange(parsedDateToTime)
+    }
+
+    
   };
 
   const showDatepicker = () => {
@@ -32,7 +43,7 @@ const Default = ({
      <View style={styles.inputContainer}>
          {
              date !== null ? 
-            <Text ml={2} my={2} >{date.toLocaleDateString('en-US') }</Text>
+            <Text ml={2} my={2} >{ mode === 'date' ? date.toLocaleDateString('en-US') : date.toLocaleTimeString()  }</Text>
             :
             <Text ml={2} my={2} color="#828282" >Select</Text>
          }
@@ -42,7 +53,7 @@ const Default = ({
       {show && (
         <DateTimePicker
           value={date ?? new Date()}
-          mode={'date'}
+          mode={mode}
           display="default"
           onChange={handleChange}
         />

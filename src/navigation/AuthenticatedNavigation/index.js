@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from '../../screens/HomeScreen';
 import NextServicesScreen from '../../screens/NextServicesScreen';
+import NewServiceScreen from '../../screens/NewServiceScreen';
 
 const AuthenticatedNavigation = () => {
     
@@ -10,8 +11,9 @@ const AuthenticatedNavigation = () => {
     
     return (
     <NavigationContainer>
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{ headerShown: false }} >
           <Stack.Screen name="NextServices" component={NextServicesScreen} />
+          <Stack.Screen name="NewService" component={NewServiceScreen} />
           <Stack.Screen name="Home" component={HomeScreen} />
         </Stack.Navigator>
     </NavigationContainer>
