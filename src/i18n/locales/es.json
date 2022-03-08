@@ -1,0 +1,88 @@
+{
+  "appName": "Limpizimo",
+  "common": {
+    "greeting": "Buenas tardes {{name}}",
+    "serviceQuestion": "¿Qué servicio necesitas?",
+    "cleaningType": "Elige el tipo de limpieza",
+    "selectCleaningType": "Selecciona el tipo de limpieza para comenzar",
+    "understood": "Entendido",
+    "back": "Atrás",
+    "now": "",
+    "ok": "OK",
+    "cancel": "Cancelar",
+    "cleaning": {
+      "main": "Limpieza",
+      "normal": "Normal",
+      "deep": "Profunda"
+    },
+    "services": "Servicios",
+    "rating": "Calificacion",
+    "months": "Meses",
+    "service": {
+      "once": "Servicio única vez",
+      "frequent": "Servicio frecuente",
+      "placeQuestion": "¿Dónde lo quieres?",
+      "hours": "Horas del servicio",
+      "selectedHours": "+{{hour}} horas",
+      "cardEnd": "La tarjeta termina en {{cardNumber}}",
+      "askFor": ""
+    },
+    "frequency": {
+      "recurrence": "Recurrencia",
+      "dayOfService": "Día del servicio",
+      "startOfService": "Inicio del servicio",
+      "recurrenceOption1": "1 vez a la semana",
+      "recurrenceOption2": "3 veces a la semana"
+    }
+  },
+  "walkthrough": {
+    "page1": {
+      "title": "Confianza",
+      "description": "Estamos avalados por el grupo de las mejores empresas de limpieza del país con amplia experiencia en el sector."
+    },
+    "page2": {
+      "title": "Seguridad",
+      "description": "Cada uno de los perfiles de nuestras colaboradoras está registrado en Limpizimo, podrás conocer su valoración, reseñas, servicios realizados y sus respectivas habilidades."
+    },
+    "page3": {
+      "title": "Servicios de Calidad",
+      "description": "Ofrecemos un excelente servicio de calidad, todas las colaboradoras son capacitadas con los más altos estándares, para que el cliente este totalmente satisfecho con el servicio."
+    }
+  },
+  "serviceAccepted": {
+    "service": "Servicio",
+    "accepted": "Aceptado",
+    "serviceDetails": "Detalles del servicio",
+    "servicesPerformed": "{{amount}} servicios realizados",
+    "seeProfile": "Ver perfil"
+  },
+  "serviceStandby": {
+    "message": "Buscando la mejor colaboradora para tu zona. Te notificaremos enseguida."
+  },
+  "employeeFound": {
+    "message": "Encontramos la colaboradora para ti",
+    "numberServices": "servicios realizados",
+    "id": "CI"
+  },
+  "employeeProfile": {
+    "verifiedData": "Datos verificados",
+    "verifiedAddress": "Dirección verificada",
+    "historyRevision": "Revisión de antecedentes"
+  },
+  "cancelService": {
+    "question": "¿Seguro quieres cancelar el servicio solicitado?",
+    "message": "Cancelar ahora puede tener un costo asociado",
+    "keepService": "Mantener Servicio",
+    "cancelService": "Cancelar Servicio"
+  },
+  "keepWaitingService": {
+    "message": "Upps! Parece que está tardando mucho.",
+    "question": "¿Qué deseas hacer?",
+    "requestAgain": "Solicitar nuevamente.",
+    "keepWaiting": "Seguir esperando."
+  },
+  "cancelReasons": {
+    "waitingTime": "Tiempo de espera agotado.",
+    "cancelByUser": "Cancelado por el usuario." 
+  }
+}
