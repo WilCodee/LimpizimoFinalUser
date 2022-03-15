@@ -34,7 +34,7 @@ const ServiceForm = () => {
     user.addresses.map(address => {
       const cleanAddress = {
         id: address._id['$oid'],
-        label: address.type,
+        label: `${address.principal_street}, ${address.secondary_street}`,
         value: address._id['$oid'],
       };
       cleans.push(cleanAddress);

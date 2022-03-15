@@ -1,5 +1,5 @@
 const Config = {
-    URL_API: 'https://limpizimo-backend-staging.rj.r.appspot.com/'
+    URL_API: 'https://limpizimo.com/'
 }
 
 export function getData(endPoint){

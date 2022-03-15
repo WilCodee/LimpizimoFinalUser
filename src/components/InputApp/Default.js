@@ -10,7 +10,8 @@ const Default = ({
   iconName,
   secureText,
   keyboardType="default", 
-  autoCompleteType="off"
+  autoCompleteType="off",
+  defaultValue=""
 }) => {
   return (
     <>
@@ -25,6 +26,7 @@ const Default = ({
          secureTextEntry={secureText}
          color={colorScreen ?? '#5f2490'}
          onChangeText={onChangeText}
+         defaultValue={defaultValue}
        />
      </View>
     </>

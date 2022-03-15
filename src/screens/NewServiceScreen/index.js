@@ -1,8 +1,7 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import {ScrollView, View, StyleSheet} from 'react-native';
 import Greeting from '../../components/Greeting';
 import {AuthContext} from '../../context/AuthContext';
-import BingMapsView from 'react-native-bing-maps';
 import MainContainer from '../../containers/MainContainer';
 import TextApp from '../../components/TextApp';
 import colors from '../../constants/colors';
@@ -11,40 +10,61 @@ import CleanTypeSelector from '../../components/NewService/CleanTypeSelector';
 import ServiceTypeSelector from '../../components/NewService/ServiceTypeSelector';
 import ButtonApp from '../../components/ButtonApp';
 import ServiceForm from '../../components/NewService/ServiceForm';
-import { NewServiceContext } from '../../context/NewServiceContext';
+import {NewServiceContext} from '../../context/NewServiceContext';
+import MapboxGL from '@react-native-mapbox-gl/maps';
+MapboxGL.setAccessToken(
+  'pk.eyJ1IjoicGFibG90cnVqaWxsbyIsImEiOiJjbDBvcTBsZnUxczVuM2hvdDNxN25xbmRtIn0.thrjGHBdDcIr7ykZMghmiw',
+);
+MapboxGL.setConnected(true);
 
-const NewServiceScreen = () => {
-  const {logout, user} = useContext(AuthContext);
-  const { service } = useContext(NewServiceContext)
-  const [lat, setLat] = React.useState(-2.170998);
-  const [long, setLong] = React.useState(-79.922356);
-
-  console.log('service', service)
-  console.log('user', user)
+const NewServiceScreen = ({navigation}) => {
+  const {user} = useContext(AuthContext);
+  const {service} = useContext(NewServiceContext);
+  const [coordinates, setCoordinates] = useState([-78.55424, -0.28273]);
+  
   return (
     <>
-      <ScrollView contentContainerStyle={styles.screenContainer} >
+      <ScrollView contentContainerStyle={styles.screenContainer}>
         <Greeting value={'Hello ' + user.name} />
-        
+
         <MainContainer>
-            <MenuApp.Default title="¿Qué servicio necesitas?" />
-            <TextApp.Default color="white" textAlign="center" value='Elige el tipo de limpieza' fontSize={14} />
-            <CleanTypeSelector />
-            <View style={{ backgroundColor: 'white', marginHorizontal: 20, borderRadius: 25, paddingVertical: 8, marginTop: 12 }}>
-                <ServiceTypeSelector />
-                <ServiceForm />
-                <View style={{ marginTop: 12, marginHorizontal: 20 }}>
-                    <ButtonApp.Default title="Solicitar Servicio" onPress={() => navigation.navigate('ServiceStandby')} />
-                </View> 
+          <MenuApp.Default
+            title="¿Qué servicio necesitas?"
+            navigation={navigation}
+          />
+          <TextApp.Default
+            color="white"
+            textAlign="center"
+            value="Elige el tipo de limpieza"
+            fontSize={14}
+          />
+          <CleanTypeSelector />
+          <View
+            style={{
+              backgroundColor: 'white',
+              marginHorizontal: 20,
+              borderRadius: 25,
+              paddingVertical: 8,
+              marginTop: 12,
+            }}>
+            <ServiceTypeSelector />
+            <ServiceForm />
+            <View style={{marginTop: 12, marginHorizontal: 20}}>
+              <ButtonApp.Default
+                title="Solicitar Servicio"
+                onPress={() => navigation.navigate('ServiceStandby')}
+              />
             </View>
+          </View>
         </MainContainer>
-        
-        <View style={styles.mapContainer} >
-        <BingMapsView
-            credentialsKey="Ah4kVH3BsgdiHqEYMww44hbC7XVhH9KqJ6Hq0LdsjNfyz3F5HA24gpVAhGAIVBA6"
-            mapLocation={{lat: lat, long: long, zoom: 15}}
-            style={{ height: 400, width: 600}}
-        />
+
+        <View style={styles.page}>
+          <View style={styles.container}>
+            <MapboxGL.MapView style={styles.map}>
+              <MapboxGL.Camera zoomLevel={16} centerCoordinate={coordinates} />
+              <MapboxGL.PointAnnotation coordinate={coordinates} />
+            </MapboxGL.MapView>
+          </View>
         </View>
       </ScrollView>
     </>
@@ -54,13 +74,45 @@ const NewServiceScreen = () => {
 export default NewServiceScreen;
 
 const styles = StyleSheet.create({
-    screenContainer: {
-        height: '100%',
-        backgroundColor: colors.primaryColor
-    },
-    mapContainer: {
-        position:'absolute',
-        bottom: -50,
-        zIndex: -1
-    }
-})
+  screenContainer: {
+    height: '100%',
+    backgroundColor: colors.primaryColor,
+  },
+  mapContainer: {
+    position: 'absolute',
+    bottom: -50,
+    zIndex: -1,
+  },
+  page: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  container: {
+    height: '100%',
+    width: '100%',
+    backgroundColor: 'blue',
+  },
+  map: {
+    flex: 1,
+  },
+  markerContainer: {
+    alignItems: 'center',
+    width: 60,
+    backgroundColor: 'transparent',
+    height: 70,
+  },
+  textContainer: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  text: {
+    textAlign: 'center',
+    paddingHorizontal: 5,
+    flex: 1,
+  },
+});

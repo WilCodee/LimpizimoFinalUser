@@ -20,6 +20,7 @@ const ControllerTextInput = ({
   multiple = false,
   navigation,
   titleScreen = 'Select',
+  defaultValue = ""
 }) => {
   return (
     <>
@@ -67,6 +68,7 @@ const ControllerTextInput = ({
               iconCollection={iconCollection}
               iconName={iconName}
               secureText={secureText}
+              defaultValue={defaultValue}
             />
           );
         }}

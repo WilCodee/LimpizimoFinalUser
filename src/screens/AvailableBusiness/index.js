@@ -1,13 +1,10 @@
 import React, {useState} from 'react'; 
 import {View, Text, Image, ScrollView, ImageBackground } from 'react-native'
-import Dialog, { DialogContent } from 'react-native-popup-dialog';
-import Touchable from 'react-native-platform-touchable';
-import { strings } from '../../i18n';
 import Images from '../../assets/images';
 import styles from './styles';
-import { useSelector, useDispatch } from 'react-redux';
-import { Avatar } from 'react-native-elements';
+import { Avatar } from 'native-base';
 import Colors  from '../../constants/colors'; 
+import TextApp from '../../components/TextApp';
 
 const businesses = [
     {
@@ -110,9 +107,9 @@ const BusinessList = () => {
           <View style={{ padding:12, display:'flex', flexDirection:'row', width: "85%" }}>
           <View style={{ flexDirection:'column' }}>
           <Avatar
-                avatarStyle={{ borderWidth: 3, borderColor:Colors.$secondaryColor } }
-                size={68}
-                rounded
+                style={{ borderWidth: 3, borderColor:Colors.secondaryColor } }
+                size="68px"
+
                 source={b.photo ? { uri: b.photo } : {}}
           />
           <Text>Verificada</Text>
@@ -131,7 +128,7 @@ const BusinessList = () => {
           </View>
           </View>
           
-          <View style={{ position:'absolute', right: 0, top: "33%", backgroundColor: Colors.$secondaryColor, borderRadius: 50, padding:8   }}>
+          <View style={{ position:'absolute', right: 0, top: "33%", backgroundColor: Colors.secondaryColor, borderRadius: 50, padding:8   }}>
             <Text style={{color: 'white', fontWeight:'bold' }} >{b.grade}</Text>
           </View>
         </ImageBackground>
@@ -201,20 +198,32 @@ const collaborators = [
 
 const HighlightCollaborators = () => {
   return(
-    <ScrollView horizontal contentContainerStyle={{ marginVertical: 16, marginLeft: 4 }}>
+    <ScrollView horizontal contentContainerStyle={{ marginLeft: 4 }}>
       {
         collaborators.map((c, index) => 
         <View key={index} style={{ paddingHorizontal: 4 }}>
            <Avatar
-                avatarStyle={{ borderWidth: 3, borderColor:Colors.$primaryColor } }
-                size={80}
-                rounded
-                source={c.photo ? { uri: c.photo } : {}}
+           size="80px"
+            style={{ borderWidth: 3, borderColor:Colors.primaryColor } }    
+            source={c.photo ? { uri: c.photo } : {}}
             />
-            <Text style={{ color: Colors.$primaryColor, fontWeight:'bold', textAlign:'center'  }} >{c.name}</Text>
-            <Text style={{ color: Colors.$secondaryColor, textAlign:'center'  }} >{c.business.name}</Text>
+            <TextApp.Default 
+            fontWeight="bold"
+            textAlign='center'
+            value={c.name}
+            />
+            <TextApp.Default
+            color={Colors.secondaryColor}
+            textAlign="center"
+            value={c.business.name}
+            />
             <View style={{ backgroundColor:'black', height: 1, marginVertical: 2 }} />
-            <Text style={{ fontSize: 10, textAlign:'center', opacity: 0.5 }} >{`${c.distance}Km de distancia`}</Text>
+            <TextApp.Default
+            color={Colors.greyTextLight}
+            textAlign="center"
+            value={c.business.name}
+            fontSize={10}
+            />
         </View>)
       }
     </ScrollView>
@@ -225,38 +234,17 @@ const HighlightCollaborators = () => {
 
 
 const AvailableBusiness = () => {
-    const authInfo = useSelector(state => state.auth)
-
-    const [dialogVisible, setDialogVisible] = useState(false);
-
-    const _closePopup = () => {
-        setDialogVisible(false);
-      };
-
     return(
         <View style={styles.container}>
-        <Dialog visible={dialogVisible} onTouchOutside={_closePopup}>
-          <DialogContent style={styles.popupContainer}>
-            <View style={styles.popupImgContainer}>
-              <Image source={Images.cleaningLady} style={styles.popupImg} resizeMode="contain" />
-              <Text style={styles.messagePopupText}>{strings('common.selectCleaningType')}</Text>
-            </View>
-            <View style={styles.lineSeparator} />
-            <Touchable style={styles.popupTouchable} onPress={_closePopup}>
-              <View style={styles.popupTextContainer}>
-                <Text style={styles.okPopupText}>{strings('common.understood').toUpperCase()}</Text>
-              </View>
-            </Touchable>
-          </DialogContent>
-        </Dialog>
+        
         <Text style={styles.greeting}>Servicio: Casa</Text>
         
        
-          <Text style={{color: Colors.$primaryColor, fontWeight:'bold', fontSize: 18 }}>Personas Destacadas</Text>
+          <Text style={{color: Colors.primaryColor, fontWeight:'bold', fontSize: 18 }}>Personas Destacadas</Text>
           <View>
           <HighlightCollaborators />
           </View>
-          <Text style={{color: Colors.$primaryColor, fontWeight:'bold', fontSize: 18 }}>14 empresas</Text>
+          <Text style={{color: Colors.primaryColor, fontWeight:'bold', fontSize: 18 }}>14 empresas</Text>
           
           <BusinessList />
           

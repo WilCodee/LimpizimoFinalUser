@@ -49,7 +49,7 @@ const Login = ({ navigation, errorText }) => {
 
   const _onLoginPressed = async (data) => {
 
-    const loginRequest = await postData('authentication/client/login', data)
+    const loginRequest = await postData('authentication/client/login', data) 
     if(loginRequest.OK){
       const currentUser = loginRequest.user
       console.info('cu', currentUser)

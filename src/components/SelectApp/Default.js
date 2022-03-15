@@ -14,7 +14,13 @@ const Default = ({ label, placeholder = "Select", selectedValue, onSelect, items
                     borderWidth={0}
                 >
                     {
-                        items.map((item, idx) => <Select.Item key={idx} label={item.label} value={item.value} />)
+                        items.map((item, idx) => 
+                        <Select.Item 
+                            key={idx} 
+                            label={item.label} 
+                            value={item.value} 
+                        />
+                        )
                     }
                 </Select>
 

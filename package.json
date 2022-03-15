@@ -11,8 +11,10 @@
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "^5.1.0",
+    "@react-native-mapbox-gl/maps": "^8.6.0-beta.0",
     "@react-navigation/native": "^6.0.8",
     "@react-navigation/native-stack": "^6.5.0",
+    "fast-text-encoding": "^1.0.3",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "native-base": "^3.3.6",
@@ -20,13 +22,16 @@
     "react-hook-form": "^7.27.0",
     "react-native": "0.67.2",
     "react-native-bing-maps": "^0.1.1",
+    "react-native-credit-card-form-ui": "^1.2.5",
+    "react-native-crypto-js": "^1.0.0",
     "react-native-elements": "^3.4.2",
     "react-native-extended-stylesheet": "^0.12.0",
     "react-native-safe-area-context": "^3.1.9",
     "react-native-screens": "^3.11.1",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-svg": "^12.1.0",
-    "react-native-vector-icons": "^9.1.0"
+    "react-native-vector-icons": "^9.1.0",
+    "react-native-webview": "^11.17.2"
   },
   "devDependencies": {
     "@babel/core": "7.17.2",
