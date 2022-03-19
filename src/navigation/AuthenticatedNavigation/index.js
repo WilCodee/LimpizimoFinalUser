@@ -10,6 +10,7 @@ import AddressFormScreen from '../../screens/AddressFormScreen';
 import CardsListScreen from '../../screens/CardsListScreen';
 import CardFormScreen from '../../screens/CardFormScreen';
 
+import ServicesDetailScreen from '../../screens/MissingScreens/ServicesDetailScreen';
 
 const AuthenticatedNavigation = () => {
     
@@ -18,6 +19,7 @@ const AuthenticatedNavigation = () => {
     return (
     <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }} >
+          <Stack.Screen name="ServicesDetail" component={ServicesDetailScreen} />
           <Stack.Screen name="NextServices" component={NextServicesScreen} />
           <Stack.Screen name="NewService" component={NewServiceScreen} />
           <Stack.Screen name="ServiceStandby" component={ServiceStandbyScreen} />

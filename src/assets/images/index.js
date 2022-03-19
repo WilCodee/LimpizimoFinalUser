@@ -33,26 +33,26 @@ import whiteLeftArrow from './Icons/whiteLeftArrow.png';
 import animatedLogo from './Global/splashlogo.gif';
 import waitingService from './Global/waitingService.png';
 import customMarker from './Global/mapa.png';
-import excelentservice from './Global/excelentservice.png'
-import trust from './Global/trust.png'
-import security from './Global/security.png'
-import iron from './Global/iron.png'
-import wash from './Global/wash.png'
-import clean from './Global/clean.png'
-import cook from './Global/cook.png'
-import mapa from './Global/mapa.png'
-import msg from './Global/msg.png'
-import greenNormalCleaning from './Global/greenNormalCleaning.png'
-import newclock from './Global/newclock.png'
-import security2 from './Global/security2.png'
-import trust2 from './Global/trust2.png'
-import excelentservice2 from './Global/excelentservice2.png'
-import trust3 from './Global/trust3.png'
-import security3 from './Global/security3.png'
-import excelentservice3 from './Global/excelentservice3.png'
-import service1 from './Global/service1.png'
-import bussinessBackground from './Global/bussinessBackground.png'; 
-
+import excelentservice from './Global/excelentservice.png';
+import trust from './Global/trust.png';
+import security from './Global/security.png';
+import iron from './Global/iron.png';
+import wash from './Global/wash.png';
+import clean from './Global/clean.png';
+import cook from './Global/cook.png';
+import mapa from './Global/mapa.png';
+import msg from './Global/msg.png';
+import greenNormalCleaning from './Global/greenNormalCleaning.png';
+import newclock from './Global/newclock.png';
+import security2 from './Global/security2.png';
+import trust2 from './Global/trust2.png';
+import excelentservice2 from './Global/excelentservice2.png';
+import trust3 from './Global/trust3.png';
+import security3 from './Global/security3.png';
+import excelentservice3 from './Global/excelentservice3.png';
+import service1 from './Global/service1.png';
+import bussinessBackground from './Global/bussinessBackground.png';
+import type1 from './Global/type1.png';
 
 export default {
   security3,
@@ -108,5 +108,6 @@ export default {
   security,
   excelentservice,
   service1,
-  bussinessBackground
+  bussinessBackground,
+  type1,
 };
