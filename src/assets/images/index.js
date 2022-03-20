@@ -53,6 +53,11 @@ import excelentservice3 from './Global/excelentservice3.png';
 import service1 from './Global/service1.png';
 import bussinessBackground from './Global/bussinessBackground.png';
 import type1 from './Global/type1.png';
+import checkPurple from './Global/checkPurple.png';
+import bedroom from './Global/bedroom.png';
+import kitchenRoom from './Global/kitchenRoom.png';
+import bathRoom from './Global/bathRoom.png';
+import commonSpaces from './Global/commonSpaces.png';
 
 export default {
   security3,
@@ -110,4 +115,9 @@ export default {
   service1,
   bussinessBackground,
   type1,
+  checkPurple,
+  bedroom,
+  kitchenRoom,
+  bathRoom,
+  commonSpaces,
 };
