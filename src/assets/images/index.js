@@ -59,6 +59,7 @@ import kitchenRoom from './Global/kitchenRoom.png';
 import bathRoom from './Global/bathRoom.png';
 import commonSpaces from './Global/commonSpaces.png';
 import checkGreen from './Global/checkGreen.png';
+import whiteDetails from './Icons/whiteDetails.svg';
 
 export default {
   security3,
@@ -122,4 +123,5 @@ export default {
   bathRoom,
   commonSpaces,
   checkGreen,
+  whiteDetails,
 };
