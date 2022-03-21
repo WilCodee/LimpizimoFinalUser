@@ -58,6 +58,7 @@ import bedroom from './Global/bedroom.png';
 import kitchenRoom from './Global/kitchenRoom.png';
 import bathRoom from './Global/bathRoom.png';
 import commonSpaces from './Global/commonSpaces.png';
+import checkGreen from './Global/checkGreen.png';
 
 export default {
   security3,
@@ -120,4 +121,5 @@ export default {
   kitchenRoom,
   bathRoom,
   commonSpaces,
+  checkGreen,
 };

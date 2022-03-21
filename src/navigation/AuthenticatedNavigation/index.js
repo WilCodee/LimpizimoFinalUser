@@ -12,6 +12,7 @@ import CardFormScreen from '../../screens/CardFormScreen';
 
 import ServicesDetailScreen from '../../screens/MissingScreens/ServicesDetailScreen';
 import NormalCleanScreen from '../../screens/NormalCleanScreen/NormalCleanScreen';
+import DeppCleanScreen from './../../screens/DeepCleanScreen/index';
 
 const AuthenticatedNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -19,6 +20,7 @@ const AuthenticatedNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen name="DeppClean" component={DeppCleanScreen} />
         <Stack.Screen name="NormalClean" component={NormalCleanScreen} />
         <Stack.Screen name="ServicesDetail" component={ServicesDetailScreen} />
         <Stack.Screen name="NextServices" component={NextServicesScreen} />
