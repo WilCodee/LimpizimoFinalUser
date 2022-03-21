@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Text, ScrollView, Image} from 'react-native';
+import {View, ScrollView, Image} from 'react-native';
 
-import Layout from './components/Layout';
 import Spaces from './components/Spaces';
 import Images from '../../assets/images';
 import TextApp from '../../components/TextApp';
 import colors from '../../constants/colors';
+import CommonLayout from '../../components/Layout/CommonLayout';
 
 const arrsBedroom = [
   'Limpiar los polvos.',
@@ -48,7 +48,7 @@ const commonSpaces = [
 const NormalCleanScreen = () => {
   return (
     <ScrollView>
-      <Layout
+      <CommonLayout
         image={Images.normalCleaning}
         title="LIMPIESA NORMAL"
         subtitle="Conoce las tareas a realizar por cada área">
@@ -60,12 +60,13 @@ const NormalCleanScreen = () => {
           image={Images.commonSpaces}
           space="Espacios comunes"
         />
-      </Layout>
+      </CommonLayout>
       <View
         style={{
           flex: 1,
           alignItems: 'center',
           paddinBottom: 30,
+          paddingHorizontal: 20,
           backgroundColor: colors.primaryColor,
         }}>
         <Image

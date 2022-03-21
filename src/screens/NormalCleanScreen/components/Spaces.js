@@ -27,8 +27,9 @@ const Spaces = ({arr, image, space}) => {
           color={colors.primaryColor}
         />
       </View>
-      {arr.map(item => (
+      {arr.map((item,i) => (
         <View
+        key={i}
           style={{
             flex: 1,
             width: '100%',
