@@ -1,18 +1,11 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-} from 'react-native';
+import {View, StyleSheet, ScrollView, Image} from 'react-native';
 import React from 'react';
 
-import colors from '../../../constants/colors';
-import TextApp from '../../../components/TextApp';
-import Images from '../../../assets/images';
+import colors from './../../constants/colors';
+import TextApp from './../TextApp';
+import Images from './../../assets/images';
 
-const Layuot = ({image, title, subtitle, children}) => {
+const CommonLayout = ({image, title, subtitle, children}) => {
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -80,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Layuot;
+export default CommonLayout;
