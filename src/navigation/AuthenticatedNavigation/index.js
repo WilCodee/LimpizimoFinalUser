@@ -14,6 +14,7 @@ import ServicesDetailScreen from '../../screens/MissingScreens/ServicesDetailScr
 import NormalCleanScreen from '../../screens/NormalCleanScreen/NormalCleanScreen';
 import DeppCleanScreen from './../../screens/DeepCleanScreen/index';
 import ServiceDetailScreen from './../../screens/ServiceDetailScreen/index';
+import ServiceDetailScreenss from '../../screens/Page25/Page25';
 
 const AuthenticatedNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -22,6 +23,10 @@ const AuthenticatedNavigation = () => {
     <NavigationContainer>
       {/* <Stack.Navigator initialRouteName='NextServices' screenOptions={{headerShown: false}}> */}
       <Stack.Navigator screenOptions={{headerShown: false}}>
+        <Stack.Screen
+          name="ServiceDetailss"
+          component={ServiceDetailScreenss}
+        />
         <Stack.Screen name="ServiceDetail" component={ServiceDetailScreen} />
         <Stack.Screen name="DeepClean" component={DeppCleanScreen} />
         <Stack.Screen name="NormalClean" component={NormalCleanScreen} />
