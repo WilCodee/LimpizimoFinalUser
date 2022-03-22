@@ -5,6 +5,9 @@ import Images from '../../assets/images';
 import TextApp from '../../components/TextApp';
 import ButtonApp from '../../components/ButtonApp';
 import colors from '../../constants/colors';
+import InternalContainer from '../../containers/InternalContainer';
+import ImageEmployee from '../../components/ImageEmployee';
+import ImageUserProfile from '../../components/ImageUserProfile';
 
 const Aps = () => {
   return (
@@ -56,14 +59,16 @@ const dataService = [
   },
 ];
 
-const ServiceDetailScreen = () => {
+const ServiceDetailScreen = ({navigation}) => {
   return (
     <ScrollView>
-      <CommonLayout
-        image={Images.whiteDetails}
-        title="Detalles del servicios"
-        subtitle="Revisa el detalle del servicios realizados">
-        <View
+      <InternalContainer
+      title="Detalles del servicio"
+      subtitle="Revisa el detalle del servicio realizado"
+      navigation={navigation}
+      >
+
+      <View
           style={{
             flex: 1,
             // backgroundColor: 'blue',
@@ -88,11 +93,14 @@ const ServiceDetailScreen = () => {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-              <Image
-                source={Images.assignedBorder}
-                style={{width: 50, height: 60, marginRight: 10}}
-                resizeMode="contain"
-              />
+                <ImageUserProfile 
+                  isVerified={false} 
+                  imageUrl='https://i.ibb.co/V9GYV8r/Recurso-1.png' 
+                  size={64} 
+                  fullRounded={true} 
+                  borderThickness={2} 
+                  outlineColor={colors.secondaryColor} 
+                />
               <View>
                 <TextApp.Default
                   color={colors.greyText}
@@ -297,7 +305,7 @@ const ServiceDetailScreen = () => {
           title="Reportar un problema"
           color={colors.primaryColor}
         />
-      </CommonLayout>
+      </InternalContainer>
     </ScrollView>
   );
 };

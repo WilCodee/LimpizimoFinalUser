@@ -3,6 +3,7 @@ import Images from '../../assets/images';
 import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
 import {Modal, Button, FlatList, Box, HStack, Avatar, VStack, Text, Pressable} from 'native-base';
 import colors from '../../constants/colors';
+import LimpizimoMenu from '../LimpizimoMenu';
 
 const menuOptions =  [
   {
@@ -142,35 +143,10 @@ const Default = ({title, navigation}) => {
       </View>
 
       <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-        <Modal.Content width="300px" height="900px">
+        <Modal.Content width="350px" height="700px">
           <Modal.CloseButton />
-          <Modal.Header>
-            <HStack space={2}>
-             <Avatar
-                      size="48px"
-                      source={{
-                        uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyEaZqT3fHeNrPGcnjLLX1v_W4mvBlgpwxnA&usqp=CAU',
-                      }}
-                      borderWidth="2"
-                      borderColor={colors.secondaryColor}
-                    />
-
-                    <VStack>
-                      <Text>Ricardo Mancero</Text>
-                      <Text>4.89</Text>
-                      <Text>Editar Perfil</Text>
-                    </VStack>
-
-                    </HStack>
-          </Modal.Header>
           <Modal.Body>
-            <FlatList
-              data={menuOptions}
-              renderItem={({item}) => (
-                <MenuItem item={item} navigation={navigation} />
-              )}
-              keyExtractor={item => item.label}
-            />
+            <LimpizimoMenu />
           </Modal.Body>
         
         </Modal.Content>

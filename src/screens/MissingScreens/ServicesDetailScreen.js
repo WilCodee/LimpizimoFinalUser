@@ -12,7 +12,7 @@ import colors from '../../constants/colors';
 import TextApp from '../../components/TextApp';
 import Images from '../../assets/images';
 
-const ServicesDetailScreen = () => {
+const ServicesDetailScreen = ({navigation}) => {
   return (
     <ScrollView>
       <View style={styles.container}>
@@ -214,6 +214,7 @@ const ServicesDetailScreen = () => {
             />
 
             <TouchableOpacity
+              onPress={() => navigation.navigate("NormalClean") }
               style={{
                 backgroundColor: colors.primaryColor,
                 flex: 1,
@@ -251,6 +252,7 @@ const ServicesDetailScreen = () => {
               />
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={() => navigation.navigate("DeepClean") }
               style={{
                 backgroundColor: colors.primaryColor,
                 flex: 1,
@@ -277,7 +279,7 @@ const ServicesDetailScreen = () => {
                 <TextApp.Default
                   fontSize={20}
                   fontWeight="bold"
-                  value="Limpieza Normal"
+                  value="Limpieza Profunda"
                   color={colors.mainColorLight}
                 />
               </View>

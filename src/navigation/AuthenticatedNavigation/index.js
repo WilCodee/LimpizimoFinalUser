@@ -20,9 +20,9 @@ const AuthenticatedNavigation = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Navigator initialRouteName='NextServices' screenOptions={{headerShown: false}}>
         <Stack.Screen name="ServiceDetail" component={ServiceDetailScreen} />
-        <Stack.Screen name="DeppClean" component={DeppCleanScreen} />
+        <Stack.Screen name="DeepClean" component={DeppCleanScreen} />
         <Stack.Screen name="NormalClean" component={NormalCleanScreen} />
         <Stack.Screen name="ServicesDetail" component={ServicesDetailScreen} />
         <Stack.Screen name="NextServices" component={NextServicesScreen} />

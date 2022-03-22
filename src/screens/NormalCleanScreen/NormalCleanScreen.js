@@ -50,10 +50,10 @@ const NormalCleanScreen = () => {
     <ScrollView>
       <CommonLayout
         image={Images.normalCleaning}
-        title="LIMPIESA NORMAL"
+        title="LIMPIEZA NORMAL"
         subtitle="Conoce las tareas a realizar por cada área">
         <Spaces arr={arrsBedroom} image={Images.bedroom} space="Dormitorio" />
-        <Spaces arr={arrsKitchen} image={Images.kitchenRoom} space="Cosina" />
+        <Spaces arr={arrsKitchen} image={Images.kitchenRoom} space="Cocina" />
         <Spaces arr={arrsbathroom} image={Images.bathRoom} space="Baño" />
         <Spaces
           arr={commonSpaces}
