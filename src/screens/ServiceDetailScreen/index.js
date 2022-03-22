@@ -1,6 +1,5 @@
 import {ScrollView, View, Image, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import CommonLayout from './../../components/Layout/CommonLayout';
 import Images from '../../assets/images';
 import TextApp from '../../components/TextApp';
 import ButtonApp from '../../components/ButtonApp';
@@ -11,34 +10,35 @@ import ImageUserProfile from '../../components/ImageUserProfile';
 
 const Aps = () => {
   return (
-    <TouchableOpacity>
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'row',
-          borderColor: colors.primaryColor,
-          borderWidth: 1,
-          borderRadius: 20,
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          width: 150,
-          // height: 10,
-          paddingHorizontal: 8,
-          marginTop: 5,
-        }}>
+    <View
+      style={{
+        flex: 1,
+        flexDirection: 'row',
+        borderColor: colors.primaryColor,
+        borderWidth: 1,
+        borderRadius: 20,
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: 150,
+        paddingHorizontal: 8,
+        marginTop: 5,
+      }}>
+      <TouchableOpacity>
         <Image
           source={Images.clock}
           style={{width: 15, height: 15}}
           resizeMode="contain"
         />
-        <TextApp.Default fontWeight="bold" value="+4 horas" />
+      </TouchableOpacity>
+      <TextApp.Default fontWeight="bold" value="+4 horas" />
+      <TouchableOpacity>
         <Image
           source={Images.alertIcon}
           style={{width: 15, height: 15}}
           resizeMode="contain"
         />
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 };
 
@@ -63,12 +63,10 @@ const ServiceDetailScreen = ({navigation}) => {
   return (
     <ScrollView>
       <InternalContainer
-      title="Detalles del servicio"
-      subtitle="Revisa el detalle del servicio realizado"
-      navigation={navigation}
-      >
-
-      <View
+        title="Detalles del servicio"
+        subtitle="Revisa el detalle del servicio realizado"
+        navigation={navigation}>
+        <View
           style={{
             flex: 1,
             // backgroundColor: 'blue',
@@ -93,14 +91,14 @@ const ServiceDetailScreen = ({navigation}) => {
                 flexDirection: 'row',
                 alignItems: 'center',
               }}>
-                <ImageUserProfile 
-                  isVerified={false} 
-                  imageUrl='https://i.ibb.co/V9GYV8r/Recurso-1.png' 
-                  size={64} 
-                  fullRounded={true} 
-                  borderThickness={2} 
-                  outlineColor={colors.secondaryColor} 
-                />
+              <ImageUserProfile
+                isVerified={false}
+                imageUrl="https://i.ibb.co/V9GYV8r/Recurso-1.png"
+                size={64}
+                fullRounded={true}
+                borderThickness={2}
+                outlineColor={colors.secondaryColor}
+              />
               <View>
                 <TextApp.Default
                   color={colors.greyText}
@@ -227,7 +225,7 @@ const ServiceDetailScreen = ({navigation}) => {
         <View
           style={{
             flex: 1,
-            // alignItems: 'center',
+            alignItems: 'center',
             marginBottom: 20,
           }}>
           <TextApp.Default
@@ -262,8 +260,9 @@ const ServiceDetailScreen = ({navigation}) => {
             </Text>
 
             <View>
-              {dataService.map(s => (
+              {dataService.map((s, i) => (
                 <View
+                  key={i}
                   style={{
                     flex: 1,
                     flexDirection: 'row',
@@ -301,10 +300,18 @@ const ServiceDetailScreen = ({navigation}) => {
             </View>
           </View>
         </View>
-        <ButtonApp.Default
-          title="Reportar un problema"
-          color={colors.primaryColor}
-        />
+        <View
+          style={{
+            marginBottom: 20,
+          }}>
+          <ButtonApp.Secondary
+            title="Reportar un problema"
+            textColor={colors.primaryColor}
+            height={35}
+            fontSize={20}
+            width="60%"
+          />
+        </View>
       </InternalContainer>
     </ScrollView>
   );

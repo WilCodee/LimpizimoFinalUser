@@ -1,5 +1,7 @@
-import Default from './Default'
+import Default from './Default';
+import Secondary from './Secondary';
 
 export default {
-    Default
-}
+  Default,
+  Secondary,
+};
