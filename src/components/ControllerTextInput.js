@@ -20,7 +20,7 @@ const ControllerTextInput = ({
   multiple = false,
   navigation,
   titleScreen = 'Select',
-  defaultValue = ""
+  defaultValue = '',
 }) => {
   return (
     <>
@@ -36,7 +36,7 @@ const ControllerTextInput = ({
                 label={label}
                 placeholder={placeholder}
                 onBlur={onBlur}
-                onSelect={(selected) => onChange(selected)}
+                onSelect={selected => onChange(selected)}
                 value={value}
                 iconCollection={iconCollection}
                 iconName={iconName}
@@ -50,7 +50,7 @@ const ControllerTextInput = ({
                 colorScreen={colorScreen}
                 label={label}
                 value={value}
-                onChange={(selected) => onChange(selected)}
+                onChange={selected => onChange(selected)}
                 iconCollection={iconCollection}
                 iconName={iconName}
               />
@@ -62,7 +62,7 @@ const ControllerTextInput = ({
               label={label}
               placeholder={placeholder}
               onBlur={onBlur}
-              onChangeText={(text) => onChange(text)}
+              onChangeText={text => onChange(text)}
               value={value}
               colorScreen={colorScreen}
               iconCollection={iconCollection}

@@ -1,15 +1,26 @@
 import React, {useState} from 'react';
 import Images from '../../assets/images';
 import {StyleSheet, View, Image, TouchableOpacity} from 'react-native';
-import {Modal, Button, FlatList, Box, HStack, Avatar, VStack, Text, Pressable} from 'native-base';
+import {
+  Modal,
+  Button,
+  FlatList,
+  Box,
+  HStack,
+  Avatar,
+  VStack,
+  Text,
+  Pressable,
+} from 'native-base';
 import colors from '../../constants/colors';
 import LimpizimoMenu from '../LimpizimoMenu';
+import {Icon} from 'react-native-elements';
 
-const menuOptions =  [
+const menuOptions = [
   {
     label: 'Mi cuenta',
-    isTitle: true, 
-    titleBackgroundColor: colors.primaryColor
+    isTitle: true,
+    titleBackgroundColor: colors.primaryColor,
   },
   {label: 'Mi perfil', icon: 'person-outline', routeKey: 'Profile'},
   {label: 'Servicios', routeKey: 'Service', route: 'AddressList'},
@@ -24,14 +35,14 @@ const menuOptions =  [
     icon: 'location-outline',
     id: '6',
     routeKey: 'LoadingDirection',
-    route: 'AddressList'
+    route: 'AddressList',
   },
   {
     label: 'Método de pago',
     icon: 'card-outline',
     id: '7',
     routeKey: 'PaymentMethod',
-    route: 'CardsList'
+    route: 'CardsList',
   },
   {
     label: 'Centro de Ayuda',
@@ -46,9 +57,11 @@ const menuOptions =  [
     id: '10',
     routeKey: 'Notification',
   },
-  {label: 'Promos y Créditos', id: '11', 
-  isTitle: true, 
-    titleBackgroundColor: colors.secondaryColor
+  {
+    label: 'Promos y Créditos',
+    id: '11',
+    isTitle: true,
+    titleBackgroundColor: colors.secondaryColor,
   },
   {label: 'Cupones', id: '12', routeKey: 'Coupon'},
   {
@@ -68,54 +81,48 @@ const menuOptions =  [
   },
 ];
 
-
 const MenuItem = ({item, navigation}) => {
-  if(item.isTitle){
-    return(
-      <Box 
-        style={{ backgroundColor: item.titleBackgroundColor }}
+  if (item.isTitle) {
+    return (
+      <Box
+        style={{backgroundColor: item.titleBackgroundColor}}
         pl={4}
         py={1}
-        borderRadius={25}
-      > 
-         <Text style={{color: 'white'}} >{item.label}</Text> 
+        borderRadius={25}>
+        <Text style={{color: 'white'}}>{item.label}</Text>
       </Box>
-    )
+    );
   }
 
-  if(typeof(item.isTitle)==="undefined"){
-    return(
-      <Pressable
-      onPress={() =>  navigation.navigate(item.route) }
-      >
+  if (typeof item.isTitle === 'undefined') {
+    return (
+      <Pressable onPress={() => navigation.navigate(item.route)}>
         <HStack
-     space={2} 
-     borderBottomWidth="1"
-                  borderColor="coolGray.200"
-                  py={2} >
-                    <Avatar
-                      size="48px"
-                      source={{
-                        uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyEaZqT3fHeNrPGcnjLLX1v_W4mvBlgpwxnA&usqp=CAU',
-                      }}
-                    />
-                    
-                      <Text
-                        _dark={{
-                          color: 'warmGray.50',
-                        }}
-                        color="coolGray.800"
-                        bold>
-                        {item.label}
-                      </Text>
+          space={2}
+          borderBottomWidth="1"
+          borderColor="coolGray.200"
+          py={2}>
+          <Avatar
+            size="48px"
+            source={{
+              uri:
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyEaZqT3fHeNrPGcnjLLX1v_W4mvBlgpwxnA&usqp=CAU',
+            }}
+          />
 
-                  </HStack>
-                  </Pressable>
-   
-    )
+          <Text
+            _dark={{
+              color: 'warmGray.50',
+            }}
+            color="coolGray.800"
+            bold>
+            {item.label}
+          </Text>
+        </HStack>
+      </Pressable>
+    );
   }
-}
-
+};
 
 const Default = ({title, navigation}) => {
   const [showModal, setShowModal] = useState(false);
@@ -131,10 +138,11 @@ const Default = ({title, navigation}) => {
       }}>
       <View style={{flex: 0.5}}>
         <TouchableOpacity onPress={() => setShowModal(true)}>
-        <Image
-            source={Images.whiteRightArrowV2}
-            style={styles.popupImg}
-            resizeMode="contain"
+          <Icon
+            iconStyle={{marginRight: 30}}
+            name="menu"
+            size={45}
+            color="white"
           />
         </TouchableOpacity>
       </View>
@@ -148,7 +156,6 @@ const Default = ({title, navigation}) => {
           <Modal.Body>
             <LimpizimoMenu />
           </Modal.Body>
-        
         </Modal.Content>
       </Modal>
     </View>
