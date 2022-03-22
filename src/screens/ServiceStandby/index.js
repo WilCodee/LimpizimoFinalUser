@@ -4,6 +4,7 @@ import { View, Image, Text, StyleSheet } from 'react-native';
 //import { strings } from '../../i18n';
 import Images from '../../assets/images';
 import CONSTANTS from '../../constants';
+import colors from '../../constants/colors';
 import useInterval from '../../customHooks/useInterval';
 //import KeepWaitingService from '../../modals/KeepWatingService';
 //import { updateServiceStatusSocket } from '../../store/actions/webSockets';
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '$primaryColor',
+    backgroundColor: colors.primaryColor,
   },
   text: {
     color: 'white',

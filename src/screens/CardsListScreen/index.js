@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {FlatList, View, VStack} from 'native-base';
+import {FlatList, HStack, View, VStack} from 'native-base';
 import {ActivityIndicator, Image} from 'react-native';
 import InternalContainer from '../../containers/InternalContainer';
 import TextApp from '../../components/TextApp';
@@ -28,22 +28,27 @@ const CardsListScreen = ({navigation}) => {
 }
 
 useEffect(() => {
-    initialRequest()
+    //initialRequest()
 }, [])
 
   const entries = [
     {
-      title: 'A',
+      title: 'VISA',
+      pin: '4111'
     },
     {
-      title: 'B',
+      title: 'MASTERCARD',
+      pin: '2234'
     },
   ];
 
   const renderItem = ({item, index}) => {
     return (
       <View style={{backgroundColor: colors.primaryColor, height: 150, marginTop: 12}}>
-        <TextApp.Default value={item.title} />
+        <VStack py={12}  >
+        <TextApp.Default value={item.title} color="white" textAlign='center' fontSize={24} />
+        <TextApp.Default value={ '*****' + item.pin} color="white" textAlign='center' fontSize={16} />
+        </VStack>
       </View>
     );
   };
