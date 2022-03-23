@@ -143,9 +143,11 @@ const RegisterScreen = ({ navigation }) => {
       }
 
       const register = await postData('authentication/createUserClient', clientInfo);
+      console.log('register', register)
       if(!register.OK){
-        dispatch(showOverlay({children: <Text>{register.message}</Text>}))
+        alert('message' in register ? register.message : 'Algo salió mal, por favor intenta luego.' )
       }else{
+        alert('Usuario creado exitosamente, ya puedes iniciar sesión')
         navigation.navigate('Login');
       }
       

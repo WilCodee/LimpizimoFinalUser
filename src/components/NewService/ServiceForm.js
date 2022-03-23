@@ -31,14 +31,16 @@ const ServiceForm = () => {
 
   const getCleanAdresses = () => {
     let cleans = [];
-    user.addresses.map(address => {
-      const cleanAddress = {
-        id: address._id['$oid'],
-        label: `${address.principal_street}, ${address.secondary_street}`,
-        value: address._id['$oid'],
-      };
-      cleans.push(cleanAddress);
-    });
+    if('addresses' in user && user.addresses.length>0){
+      user.addresses.map(address => {
+        const cleanAddress = {
+          id: address._id['$oid'],
+          label: `${address.principal_street}, ${address.secondary_street}`,
+          value: address._id['$oid'],
+        };
+        cleans.push(cleanAddress);
+      });
+    }
     return cleans;
   };
 
@@ -54,6 +56,19 @@ const ServiceForm = () => {
     });
     return cleanHours;
   };
+
+  const getSelectedAddress = () => {
+
+    if('_id' in service.serviceAddress){
+      return service.serviceAddress._id['$oid']   
+    }
+
+    if('addresses' in user && user.addresses.length > 0){
+      return user.addresses[0]._id['$oid']
+    }
+
+    return 0;
+  }
 
   return (
     <View style={styles.mainContainer}>
@@ -77,11 +92,7 @@ const ServiceForm = () => {
       <SelectApp.Default
         label="¿Dónde lo quieres?"
         placeholder="Seleccionar"
-        selectedValue={
-          '_id' in service.serviceAddress
-            ? service.serviceAddress._id['$oid']
-            : user.addresses[0]._id['$oid']
-        }
+        selectedValue={getSelectedAddress()}
         onSelect={handleSelectAddress}
         items={getCleanAdresses()}
       />

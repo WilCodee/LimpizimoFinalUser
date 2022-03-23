@@ -8,17 +8,22 @@ import ButtonApp from '../../components/ButtonApp';
 import {AuthContext} from '../../context/AuthContext';
 import {getData} from '../../utils/fetch/getData';
 import AddressItem from '../../components/AddressList/AddressItem';
+import { useIsFocused } from '@react-navigation/native';
 
 const AddressListScreen = ({navigation}) => {
   const {user} = useContext(AuthContext);
   const [addresses, setAddresses] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const isFocused = useIsFocused()
+
+
   const initialRequest = async () => {
     setLoading(true);
     const request = await getData(
       `address/getAllAddresses/${user._id['$oid']}`,
     );
+    console.log('request', request)
     if (request.OK) {
       setAddresses(request.addresses);
       setLoading(false);
@@ -28,7 +33,7 @@ const AddressListScreen = ({navigation}) => {
 
   useEffect(() => {
     initialRequest();
-  }, []);
+  }, [isFocused]);
 
   return (
     <InternalContainer

@@ -9,49 +9,17 @@ import {AuthContext} from '../../context/AuthContext';
 import {getData} from '../../utils/fetch/getData';
 import AddressItem from '../../components/AddressList/AddressItem';
 import Carousel from 'react-native-snap-carousel';
-import { generateAuthToken } from '../../utils/paymentez';
-import { all } from '../../utils/cards';
+import {generateAuthToken} from '../../utils/paymentez';
+import {all} from '../../utils/cards';
+import {WebView} from 'react-native-webview';
 
 const CardsListScreen = ({navigation}) => {
   const {user} = useContext(AuthContext);
-  const [cards, setCards] = useState([]);
-  const [loading, setLoading] = useState(false);
+  
+  console.log('url', `https://paymentez-form.web.app/list?userId=${user['_id']['$oid']}`)
+  
+  
 
-  const initialRequest = async () => {
-    const authToken = await generateAuthToken()
-    const cardsRequest = await all(authToken , user['_id']['$oid'])
-    console.info('bef', cardsRequest)
-    if('result_size' in cardsRequest && cardsRequest['result_size'] >= 1){
-        console.info('acc', cardsRequest)
-        setCards(cardsRequest.cards)
-    }
-}
-
-useEffect(() => {
-    //initialRequest()
-}, [])
-
-  const entries = [
-    {
-      title: 'VISA',
-      pin: '4111'
-    },
-    {
-      title: 'MASTERCARD',
-      pin: '2234'
-    },
-  ];
-
-  const renderItem = ({item, index}) => {
-    return (
-      <View style={{backgroundColor: colors.primaryColor, height: 150, marginTop: 12}}>
-        <VStack py={12}  >
-        <TextApp.Default value={item.title} color="white" textAlign='center' fontSize={24} />
-        <TextApp.Default value={ '*****' + item.pin} color="white" textAlign='center' fontSize={16} />
-        </VStack>
-      </View>
-    );
-  };
 
   return (
     <InternalContainer
@@ -67,14 +35,15 @@ useEffect(() => {
           value="Mis Métodos de pago"
         />
 
-        <Carousel
-          ref={c => c}
-          data={entries}
-          renderItem={renderItem}
-          sliderWidth={375}
-          itemWidth={300}
+        <WebView
+          originWhitelist={['*']}
+          source={{
+            uri: `https://paymentez-form.web.app/list?userId=${user['_id']['$oid']}`,
+          }}
+          style={{marginTop: 20}}
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
         />
-        
 
         <ButtonApp.Default
           title="Agregar nuevo"

@@ -6,14 +6,14 @@ import TextApp from '../../components/TextApp';
 import { Icon } from 'react-native-elements';
 import MenuApp from '../../components/MenuApp';
 
-const InternalContainer = ({children, iconName, iconType, iconColor, title, subtitle, navigation}) => {
+const InternalContainer = ({children, iconName, iconType, iconColor, title, subtitle}) => {
     return(
         <View 
             height="full"
             background={Colors.primaryColor}
         >
         
-        <MenuApp.Default title="" navigation={navigation} />
+        <MenuApp.Default title=""/>
 
         <View 
         backgroundColor={ Colors.primaryColor } 

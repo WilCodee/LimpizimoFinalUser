@@ -16,7 +16,45 @@ import DeppCleanScreen from './../../screens/DeepCleanScreen/index';
 import ServiceDetailScreen from './../../screens/ServiceDetailScreen/index';
 import HelpScreen from './../../screens/HelpScreen';
 import UserProfileScreen from './../../screens/UserProfileScreen';
-import RegisterScreen from './../../screens/RegisterScreen';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import LimpizimoMenu from '../../components/LimpizimoMenu';
+
+// main drawer navigator
+const Drawer = createDrawerNavigator();
+
+const DrawerScreen = () => {
+  return (
+    <Drawer.Navigator
+      initialRouteName="NextServices"
+      screenOptions={{
+        headerShown: false,
+        swipeEnabled: true,
+        drawerStyle: {
+          width: 320,
+        },
+      }}
+      backBehavior="history"
+      drawerContent={props => <LimpizimoMenu />}>
+      <Drawer.Screen name="UserProfile" component={UserProfileScreen} />
+      <Drawer.Screen name="Help" component={HelpScreen} />
+      <Drawer.Screen name="ServiceDetail" component={ServiceDetailScreen} />
+      <Drawer.Screen name="DeepClean" component={DeppCleanScreen} />
+      <Drawer.Screen name="NormalClean" component={NormalCleanScreen} />
+      <Drawer.Screen name="ServicesDetail" component={ServicesDetailScreen} />
+      <Drawer.Screen name="NextServices" component={NextServicesScreen} />
+      <Drawer.Screen name="NewService" component={NewServiceScreen} />
+      <Drawer.Screen name="ServiceStandby" component={ServiceStandbyScreen} />
+      <Drawer.Screen
+        name="AvailableBusiness"
+        component={AvailableBusinessScreen}
+      />
+      <Drawer.Screen name="AddressList" component={AddressListScreen} />
+      <Drawer.Screen name="AddressForm" component={AddressFormScreen} />
+      <Drawer.Screen name="CardsList" component={CardsListScreen} />
+      <Drawer.Screen name="CardForm" component={CardFormScreen} />
+    </Drawer.Navigator>
+  );
+};
 
 const AuthenticatedNavigation = () => {
   const Stack = createNativeStackNavigator();
@@ -24,26 +62,9 @@ const AuthenticatedNavigation = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="UserProfile"
+        initialRouteName="Drawer"
         screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Register" component={RegisterScreen} />
-        <Stack.Screen name="UserProfile" component={UserProfileScreen} />
-        <Stack.Screen name="Help" component={HelpScreen} />
-        <Stack.Screen name="ServiceDetail" component={ServiceDetailScreen} />
-        <Stack.Screen name="DeepClean" component={DeppCleanScreen} />
-        <Stack.Screen name="NormalClean" component={NormalCleanScreen} />
-        <Stack.Screen name="ServicesDetail" component={ServicesDetailScreen} />
-        <Stack.Screen name="NextServices" component={NextServicesScreen} />
-        <Stack.Screen name="NewService" component={NewServiceScreen} />
-        <Stack.Screen name="ServiceStandby" component={ServiceStandbyScreen} />
-        <Stack.Screen
-          name="AvailableBusiness"
-          component={AvailableBusinessScreen}
-        />
-        <Stack.Screen name="AddressList" component={AddressListScreen} />
-        <Stack.Screen name="AddressForm" component={AddressFormScreen} />
-        <Stack.Screen name="CardsList" component={CardsListScreen} />
-        <Stack.Screen name="CardForm" component={CardFormScreen} />
+        <Stack.Screen name="Drawer" component={DrawerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

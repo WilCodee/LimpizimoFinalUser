@@ -8,7 +8,7 @@ const Navigation = () => {
     const { isLogin, userData, login } = useContext(AuthContext);
 
 
-    const doLogin = async () => {
+    /*const doLogin = async () => {
       const data = { email: 'pablotrujilloelo@gmail.com', password: '123123' }
       const loginRequest = await postData('authentication/client/login', data) 
       if(loginRequest.OK){
@@ -22,7 +22,7 @@ const Navigation = () => {
     useEffect(() => {
       doLogin()
       console.log("user", isLogin);
-    }, [isLogin]);
+    }, [isLogin]);*/
   
     if (!isLogin) return <UnauthenticatedNavigation />;
     if (isLogin) return <AuthenticatedNavigation />;

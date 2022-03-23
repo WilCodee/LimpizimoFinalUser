@@ -61,9 +61,13 @@ const NewServiceScreen = ({navigation}) => {
         <View style={styles.page}>
           <View style={styles.container}>
             <MapboxGL.MapView style={styles.map}>
-              <MapboxGL.Camera zoomLevel={16} centerCoordinate={coordinates} />
-              <MapboxGL.PointAnnotation coordinate={coordinates} />
-            </MapboxGL.MapView>
+            <MapboxGL.Camera zoomLevel={16} 
+              centerCoordinate={'serviceAddress' in service ? ['longitude' in service.serviceAddress ? service.serviceAddress.longitude: coordinates[0] , 'latitude' in service.serviceAddress ? service.serviceAddress.latitude : coordinates[1]] : coordinates} 
+              />
+              <MapboxGL.PointAnnotation 
+              coordinate={'serviceAddress' in service ? ['longitude' in service.serviceAddress ? service.serviceAddress.longitude: coordinates[0] , 'latitude' in service.serviceAddress ? service.serviceAddress.latitude : coordinates[1]] : coordinates} 
+              />
+              </MapboxGL.MapView>
           </View>
         </View>
       </ScrollView>

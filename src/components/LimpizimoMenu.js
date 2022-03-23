@@ -6,11 +6,12 @@ import colors from '../constants/colors';
 import EmergencyButton from './EmergencyButton';
 import ImageUserProfile from './ImageUserProfile';
 import { AuthContext } from '../context/AuthContext';
+import ButtonApp from './ButtonApp';
 
 function LimpizimoMenu() {
     const navigation = useNavigation();
 
-    const { user } = useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext)
 
     const modalinfo = [
         { title: 'Mi cuenta', type: 'listTitle', },
@@ -19,7 +20,7 @@ function LimpizimoMenu() {
             icon: 'person',
             iconType: 'ionicon',
             type: 'listItem',
-            routeKey: 'EmployeeProfile',
+            routeKey: 'UserProfile',
         },
         {
             title: 'Servicios',
@@ -204,9 +205,7 @@ function LimpizimoMenu() {
                     )
                 )}
             />
-
-            <EmergencyButton large={true} primaryColor={false} visible={true} />
-
+            <ButtonApp.Default title="Cerrar Sesión" onPress={logout} />
         </View>
     )
 }
