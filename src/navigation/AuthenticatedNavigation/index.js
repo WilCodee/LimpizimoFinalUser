@@ -25,7 +25,7 @@ const Drawer = createDrawerNavigator();
 const DrawerScreen = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="NextServices"
+      initialRouteName="UserProfile"
       screenOptions={{
         headerShown: false,
         swipeEnabled: true,

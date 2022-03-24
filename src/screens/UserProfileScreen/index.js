@@ -106,10 +106,8 @@ const UserProfileScreen = ({navigation}) => {
   return (
     <ScrollView>
       <InternalContainer
-        title="¿Cómo te ayudamos?"
-        subtitle="Seleccione la consulta"
-        iconName="forum"
-        iconColor="white"
+        image="https://images.pexels.com/photos/11574219/pexels-photo-11574219.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+        title="Ricardo Mancero"
         navigation={navigation}>
         <View
           style={{
@@ -124,7 +122,6 @@ const UserProfileScreen = ({navigation}) => {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 alignItems: 'center',
-                paddingVertical: 5,
                 paddingHorizontal: 10,
                 borderRadius: 25,
                 marginBottom: 5,
