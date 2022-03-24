@@ -18,6 +18,7 @@ import HelpScreen from './../../screens/HelpScreen';
 import UserProfileScreen from './../../screens/UserProfileScreen';
 import GeneralProblemsScreen from './../../screens/GeneralProblemsScreen';
 import NotificationCenterScreen from './../../screens/NotificationCenterScreen';
+import CollaboratorProfileScreen from './../../screens/CollaboratorProfileScreen';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import LimpizimoMenu from '../../components/LimpizimoMenu';
@@ -28,7 +29,7 @@ const Drawer = createDrawerNavigator();
 const DrawerScreen = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="NotificationCenter"
+      initialRouteName="CollaboratorProfile"
       screenOptions={{
         headerShown: false,
         swipeEnabled: true,
@@ -38,6 +39,10 @@ const DrawerScreen = () => {
       }}
       backBehavior="history"
       drawerContent={props => <LimpizimoMenu />}>
+      <Drawer.Screen
+        name="CollaboratorProfile"
+        component={CollaboratorProfileScreen}
+      />
       <Drawer.Screen
         name="NotificationCenter"
         component={NotificationCenterScreen}

@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, Text} from 'native-base';
+import {View} from 'native-base';
 import {Image} from 'react-native';
 import Colors from '../../constants/colors';
 import TextApp from '../../components/TextApp';
 import {Icon} from 'react-native-elements';
 import MenuApp from '../../components/MenuApp';
+import ImageUserProfile from '../../components/ImageUserProfile';
 
 const InternalContainer = ({
   children,
@@ -15,6 +16,7 @@ const InternalContainer = ({
   subtitle,
   subtitleTextAlign,
   image,
+  collaboratorProfile,
 }) => {
   return (
     <View height="full" background={Colors.primaryColor}>
@@ -33,6 +35,9 @@ const InternalContainer = ({
             style={{width: 120, height: 120, borderRadius: 60}}
           />
         )}
+
+        {collaboratorProfile && <ImageUserProfile {...collaboratorProfile} />}
+
         {iconName && (
           <Icon size={60} name={iconName} type={iconType} color={iconColor} />
         )}
