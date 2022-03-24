@@ -29,7 +29,7 @@ const Drawer = createDrawerNavigator();
 const DrawerScreen = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="CollaboratorProfile"
+      initialRouteName="ServicesDetail"
       screenOptions={{
         headerShown: false,
         swipeEnabled: true,

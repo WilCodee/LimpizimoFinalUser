@@ -17,6 +17,7 @@ const InternalContainer = ({
   subtitleTextAlign,
   image,
   collaboratorProfile,
+  specialIcon,
 }) => {
   return (
     <View height="full" background={Colors.primaryColor}>
@@ -37,6 +38,14 @@ const InternalContainer = ({
         )}
 
         {collaboratorProfile && <ImageUserProfile {...collaboratorProfile} />}
+
+        {specialIcon && (
+          <Image
+            source={specialIcon}
+            resizeMode="cover"
+            style={{width: 60, height: 90}}
+          />
+        )}
 
         {iconName && (
           <Icon size={60} name={iconName} type={iconType} color={iconColor} />
