@@ -12,7 +12,7 @@ import CardFormScreen from '../../screens/CardFormScreen';
 
 import ServicesDetailScreen from '../../screens/MissingScreens/ServicesDetailScreen';
 import NormalCleanScreen from '../../screens/NormalCleanScreen/NormalCleanScreen';
-import DeppCleanScreen from './../../screens/DeepCleanScreen/index';
+import DeepCleanScreen from './../../screens/DeepCleanScreen/index';
 import ServiceDetailScreen from './../../screens/ServiceDetailScreen/index';
 import HelpScreen from './../../screens/HelpScreen';
 import UserProfileScreen from './../../screens/UserProfileScreen';
@@ -29,7 +29,7 @@ const Drawer = createDrawerNavigator();
 const DrawerScreen = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="NormalClean"
+      initialRouteName="UserProfile"
       screenOptions={{
         headerShown: false,
         swipeEnabled: true,
@@ -51,7 +51,7 @@ const DrawerScreen = () => {
       <Drawer.Screen name="UserProfile" component={UserProfileScreen} />
       <Drawer.Screen name="Help" component={HelpScreen} />
       <Drawer.Screen name="ServiceDetail" component={ServiceDetailScreen} />
-      <Drawer.Screen name="DeepClean" component={DeppCleanScreen} />
+      <Drawer.Screen name="DeepClean" component={DeepCleanScreen} />
       <Drawer.Screen name="NormalClean" component={NormalCleanScreen} />
       <Drawer.Screen name="ServicesDetail" component={ServicesDetailScreen} />
       <Drawer.Screen name="NextServices" component={NextServicesScreen} />
