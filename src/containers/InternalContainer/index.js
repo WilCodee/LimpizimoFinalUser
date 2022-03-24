@@ -13,6 +13,7 @@ const InternalContainer = ({
   iconColor,
   title,
   subtitle,
+  subtitleTextAlign,
   image,
 }) => {
   return (
@@ -37,7 +38,12 @@ const InternalContainer = ({
         )}
         {title && <TextApp.Default color="white" value={title} fontSize={25} />}
         {subtitle && (
-          <TextApp.Default color="white" value={subtitle} fontSize={15} />
+          <TextApp.Default
+            color="white"
+            value={subtitle}
+            fontSize={15}
+            textAlign={subtitleTextAlign}
+          />
         )}
       </View>
       <View borderTopRadius={25} backgroundColor="white" height="full" flex={1}>
