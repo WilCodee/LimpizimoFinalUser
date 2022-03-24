@@ -42,8 +42,8 @@ const InternalContainer = ({
         {specialIcon && (
           <Image
             source={specialIcon}
-            resizeMode="cover"
-            style={{width: 60, height: 90}}
+            resizeMode="contain"
+            style={{width: 60, height: 80}}
           />
         )}
 

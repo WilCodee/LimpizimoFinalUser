@@ -29,7 +29,7 @@ const Drawer = createDrawerNavigator();
 const DrawerScreen = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="ServicesDetail"
+      initialRouteName="NormalClean"
       screenOptions={{
         headerShown: false,
         swipeEnabled: true,

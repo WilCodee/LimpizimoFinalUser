@@ -5,7 +5,7 @@ import Spaces from './components/Spaces';
 import Images from '../../assets/images';
 import TextApp from '../../components/TextApp';
 import colors from '../../constants/colors';
-import CommonLayout from '../../components/Layout/CommonLayout';
+import InternalContainer from '../../containers/InternalContainer';
 
 const arrsBedroom = [
   'Limpiar los polvos.',
@@ -45,13 +45,14 @@ const commonSpaces = [
   'Limpiar los focos.',
 ];
 
-const NormalCleanScreen = () => {
+const NormalCleanScreen = ({navigation}) => {
   return (
     <ScrollView>
-      <CommonLayout
-        image={Images.normalCleaning}
+      <InternalContainer
         title="LIMPIEZA NORMAL"
-        subtitle="Conoce las tareas a realizar por cada área">
+        subtitle="Conoce las tareas a realizar por cada área"
+        specialIcon={Images.normalCleaning}
+        navigation={navigation}>
         <Spaces arr={arrsBedroom} image={Images.bedroom} space="Dormitorio" />
         <Spaces arr={arrsKitchen} image={Images.kitchenRoom} space="Cocina" />
         <Spaces arr={arrsbathroom} image={Images.bathRoom} space="Baño" />
@@ -60,41 +61,41 @@ const NormalCleanScreen = () => {
           image={Images.commonSpaces}
           space="Espacios comunes"
         />
-      </CommonLayout>
-      <View
-        style={{
-          flex: 1,
-          alignItems: 'center',
-          paddinBottom: 30,
-          paddingHorizontal: 20,
-          backgroundColor: colors.primaryColor,
-        }}>
-        <Image
-          source={Images.alertIcon}
-          style={{width: 70, height: 80}}
-          resizeMode="contain"
-        />
+        <View
+          style={{
+            flex: 1,
+            alignItems: 'center',
+            paddinBottom: 30,
+            paddingHorizontal: 20,
+            backgroundColor: colors.primaryColor,
+          }}>
+          <Image
+            source={Images.alertIcon}
+            style={{width: 70, height: 80}}
+            resizeMode="contain"
+          />
 
-        <TextApp.Default
-          fontSize={20}
-          fontWeight="bold"
-          value="Importante"
-          color={colors.secondaryColor}
-        />
-        <TextApp.Default
-          fontSize={12}
-          fontWeight="bold"
-          textAlign="center"
-          value={`Hemos realizado este estudio, basados en nuestra experiencia, un estimado de las tareas que se deben realizar por cada área de la casa, si deseas realizar otro tipo de tarea no te preocupes puedes indicarle a la colaboradora sin problema. Es importante aclarar que todas las tareas que realizan se sujetan a las horas contratadas.\n\n En el caso que se termine el tiempo contratado y deseas que la colaboradora te ayude en algo extra, no te preocupes, el tiempo seguirá corriendo y se te cobrará una vez tu y la colaboradora deslicen el botón de finalizar, es ahí cuando se te cobrará el total de las horas trabajadas.`}
-          color={colors.mainColorLight}
-        />
+          <TextApp.Default
+            fontSize={20}
+            fontWeight="bold"
+            value="Importante"
+            color={colors.secondaryColor}
+          />
+          <TextApp.Default
+            fontSize={12}
+            fontWeight="bold"
+            textAlign="center"
+            value={`Hemos realizado este estudio, basados en nuestra experiencia, un estimado de las tareas que se deben realizar por cada área de la casa, si deseas realizar otro tipo de tarea no te preocupes puedes indicarle a la colaboradora sin problema. Es importante aclarar que todas las tareas que realizan se sujetan a las horas contratadas.\n\n En el caso que se termine el tiempo contratado y deseas que la colaboradora te ayude en algo extra, no te preocupes, el tiempo seguirá corriendo y se te cobrará una vez tu y la colaboradora deslicen el botón de finalizar, es ahí cuando se te cobrará el total de las horas trabajadas.`}
+            color={colors.mainColorLight}
+          />
 
-        <Image
-          source={Images.logo}
-          style={{width: 100, height: 100}}
-          resizeMode="contain"
-        />
-      </View>
+          <Image
+            source={Images.logo}
+            style={{width: 100, height: 100}}
+            resizeMode="contain"
+          />
+        </View>
+      </InternalContainer>
     </ScrollView>
   );
 };
