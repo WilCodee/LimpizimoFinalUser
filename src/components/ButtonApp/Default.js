@@ -13,6 +13,7 @@ const Default = ({
   marginTop = 4,
   borderWidth = 1,
   borderColor,
+  position = 'center',
 }) => {
   return (
     <TouchableOpacity
@@ -24,10 +25,11 @@ const Default = ({
         borderColor,
         borderRadius,
         backgroundColor,
-        alignItems: 'center',
+        alignItems: position,
         justifyContent: 'center',
         marginBottom,
         marginTop,
+        paddingHorizontal: 20,
       }}>
       <Text style={{color, fontWeight: 'bold', fontSize: 18}}>{title}</Text>
     </TouchableOpacity>
