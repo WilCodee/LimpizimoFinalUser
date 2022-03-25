@@ -19,6 +19,7 @@ import UserProfileScreen from './../../screens/UserProfileScreen';
 import GeneralProblemsScreen from './../../screens/GeneralProblemsScreen';
 import NotificationCenterScreen from './../../screens/NotificationCenterScreen';
 import CollaboratorProfileScreen from './../../screens/CollaboratorProfileScreen';
+import GiveInsightsScreen from './../../screens/GiveInsightsScreen';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import LimpizimoMenu from '../../components/LimpizimoMenu';
@@ -29,7 +30,7 @@ const Drawer = createDrawerNavigator();
 const DrawerScreen = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="UserProfile"
+      initialRouteName="GiveInsights"
       screenOptions={{
         headerShown: false,
         swipeEnabled: true,
@@ -47,6 +48,7 @@ const DrawerScreen = () => {
         name="NotificationCenter"
         component={NotificationCenterScreen}
       />
+      <Drawer.Screen name="GiveInsights" component={GiveInsightsScreen} />
       <Drawer.Screen name="GeneralProblems" component={GeneralProblemsScreen} />
       <Drawer.Screen name="UserProfile" component={UserProfileScreen} />
       <Drawer.Screen name="Help" component={HelpScreen} />
