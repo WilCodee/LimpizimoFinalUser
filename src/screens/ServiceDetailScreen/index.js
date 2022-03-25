@@ -5,12 +5,11 @@ import TextApp from '../../components/TextApp';
 import ButtonApp from '../../components/ButtonApp';
 import colors from '../../constants/colors';
 import InternalContainer from '../../containers/InternalContainer';
-import ImageEmployee from '../../components/ImageEmployee';
 import ImageUserProfile from '../../components/ImageUserProfile';
 
-const Aps = () => {
+const HourBtn = () => {
   return (
-    <View
+    <TouchableOpacity
       style={{
         flex: 1,
         flexDirection: 'row',
@@ -23,22 +22,18 @@ const Aps = () => {
         paddingHorizontal: 8,
         marginTop: 5,
       }}>
-      <TouchableOpacity>
-        <Image
-          source={Images.clock}
-          style={{width: 15, height: 15}}
-          resizeMode="contain"
-        />
-      </TouchableOpacity>
+      <Image
+        source={Images.clock}
+        style={{width: 15, height: 15}}
+        resizeMode="contain"
+      />
       <TextApp.Default fontWeight="bold" value="+4 horas" />
-      <TouchableOpacity>
-        <Image
-          source={Images.alertIcon}
-          style={{width: 15, height: 15}}
-          resizeMode="contain"
-        />
-      </TouchableOpacity>
-    </View>
+      <Image
+        source={Images.alertIcon}
+        style={{width: 15, height: 15}}
+        resizeMode="contain"
+      />
+    </TouchableOpacity>
   );
 };
 
@@ -232,9 +227,9 @@ const ServiceDetailScreen = ({navigation}) => {
             color={colors.greyText}
             value="Horas seleccionadas"
           />
-          <Aps />
+          <HourBtn />
           <TextApp.Default color={colors.greyText} value="Horas extras" />
-          <Aps />
+          <HourBtn />
         </View>
         <View
           style={{

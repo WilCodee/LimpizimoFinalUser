@@ -30,7 +30,7 @@ const Drawer = createDrawerNavigator();
 const DrawerScreen = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="GiveInsights"
+      initialRouteName="ServiceDetail"
       screenOptions={{
         headerShown: false,
         swipeEnabled: true,
