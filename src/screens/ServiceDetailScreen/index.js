@@ -1,5 +1,5 @@
 import {ScrollView, View, Image, Text, TouchableOpacity} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import Images from '../../assets/images';
 import TextApp from '../../components/TextApp';
 import ButtonApp from '../../components/ButtonApp';
@@ -7,9 +7,12 @@ import colors from '../../constants/colors';
 import InternalContainer from '../../containers/InternalContainer';
 import ImageUserProfile from '../../components/ImageUserProfile';
 
-const HourBtn = () => {
+import ModalDialog from './components/ModalDialog';
+
+const HourBtn = ({handleModal}) => {
   return (
     <TouchableOpacity
+      onPress={handleModal}
       style={{
         flex: 1,
         flexDirection: 'row',
@@ -55,8 +58,17 @@ const dataService = [
 ];
 
 const ServiceDetailScreen = ({navigation}) => {
+  const [modalSelectedHours, setModalSelectedHours] = useState(false);
   return (
     <ScrollView>
+      <ModalDialog
+        visible={modalSelectedHours}
+        closeModal={setModalSelectedHours}
+        title="Horas seleccionadas"
+        message="Son las horas que el usuario selecciona al momento de realizar el
+              pedido, estás horas están predeterminadas en función al espacio de
+              su casa, oficina u otro lugar seleccionado."
+      />
       <InternalContainer
         title="Detalles del servicio"
         subtitle="Revisa el detalle del servicio realizado"
@@ -227,7 +239,13 @@ const ServiceDetailScreen = ({navigation}) => {
             color={colors.greyText}
             value="Horas seleccionadas"
           />
-          <HourBtn />
+          <HourBtn
+            handleModal={() => {
+              console.log(modalSelectedHours);
+              setModalSelectedHours(true);
+              console.log(modalSelectedHours);
+            }}
+          />
           <TextApp.Default color={colors.greyText} value="Horas extras" />
           <HourBtn />
         </View>
