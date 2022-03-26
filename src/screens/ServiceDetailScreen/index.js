@@ -9,7 +9,7 @@ import ImageUserProfile from '../../components/ImageUserProfile';
 
 import ModalDialog from './components/ModalDialog';
 
-const HourBtn = ({handleModal}) => {
+const HourBtn = ({handleModal, hours}) => {
   return (
     <TouchableOpacity
       onPress={handleModal}
@@ -30,7 +30,7 @@ const HourBtn = ({handleModal}) => {
         style={{width: 15, height: 15}}
         resizeMode="contain"
       />
-      <TextApp.Default fontWeight="bold" value="+4 horas" />
+      <TextApp.Default fontWeight="bold" value={`+${hours} horas`} />
       <Image
         source={Images.alertIcon}
         style={{width: 15, height: 15}}
@@ -59,6 +59,7 @@ const dataService = [
 
 const ServiceDetailScreen = ({navigation}) => {
   const [modalSelectedHours, setModalSelectedHours] = useState(false);
+  const [modalExtraHours, setModalExtraHours] = useState(false);
   return (
     <ScrollView>
       <ModalDialog
@@ -68,6 +69,14 @@ const ServiceDetailScreen = ({navigation}) => {
         message="Son las horas que el usuario selecciona al momento de realizar el
               pedido, estás horas están predeterminadas en función al espacio de
               su casa, oficina u otro lugar seleccionado."
+      />
+      <ModalDialog
+        visible={modalExtraHours}
+        closeModal={setModalExtraHours}
+        title="Horas extras"
+        message="Son las horas que el usuario solicita adicionales para poder terminar los labores en su casa, oficina u otro lugar seleccionado.
+        Estas horas son previamente indicadas por la colaboradora y
+        aceptadas por el usuario"
       />
       <InternalContainer
         title="Detalles del servicio"
@@ -239,15 +248,9 @@ const ServiceDetailScreen = ({navigation}) => {
             color={colors.greyText}
             value="Horas seleccionadas"
           />
-          <HourBtn
-            handleModal={() => {
-              console.log(modalSelectedHours);
-              setModalSelectedHours(true);
-              console.log(modalSelectedHours);
-            }}
-          />
+          <HourBtn hours={4} handleModal={() => setModalSelectedHours(true)} />
           <TextApp.Default color={colors.greyText} value="Horas extras" />
-          <HourBtn />
+          <HourBtn hours={1} handleModal={() => setModalExtraHours(true)} />
         </View>
         <View
           style={{
