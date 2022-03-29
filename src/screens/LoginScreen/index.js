@@ -6,6 +6,7 @@ import {
   ScrollView,
   StyleSheet,
   Alert,
+  Image,
 } from 'react-native';
 import ButtonApp from '../../components/ButtonApp';
 import OverlayApp from '../../components/OverlayApp';
@@ -67,6 +68,13 @@ const Login = ({navigation, errorText}) => {
         alignItems: 'center',
       }}>
       <View>
+        <VStack alignItems="center">
+          <Image
+            source={Images.logo}
+            style={{width: 200, height: 100}}
+            resizeMode="contain"
+          />
+        </VStack>
         <VStack alignItems="center" my={2}>
           <TitleApp.Default value="INICIA SESIÓN" />
           <Text style={{...styles.subtitle, color: '#80868E'}}>
