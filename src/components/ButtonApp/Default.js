@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, TouchableOpacity} from 'react-native';
+import {Text, TouchableOpacity, Image} from 'react-native';
 
 const Default = ({
   title,
@@ -14,6 +14,7 @@ const Default = ({
   borderWidth = 1,
   borderColor,
   position = 'center',
+  icon,
 }) => {
   return (
     <TouchableOpacity
@@ -26,11 +27,19 @@ const Default = ({
         borderRadius,
         backgroundColor,
         alignItems: position,
+        flexDirection: icon ? 'row' : 'column',
         justifyContent: 'center',
         marginBottom,
         marginTop,
         paddingHorizontal: 20,
       }}>
+      {icon && (
+        <Image
+          source={icon}
+          style={{width: 40, height: 20}}
+          resizeMode="contain"
+        />
+      )}
       <Text style={{color, fontWeight: 'bold', fontSize: 18}}>{title}</Text>
     </TouchableOpacity>
   );

@@ -60,7 +60,9 @@ import bathRoom from './Global/bathRoom.png';
 import commonSpaces from './Global/commonSpaces.png';
 import checkGreen from './Global/checkGreen.png';
 import whiteDetails from './Icons/whiteDetails.svg';
-import limp1 from './Global/limp1.png'
+import limp1 from './Global/limp1.png';
+import logoFacebook from './Icons/facebook.png';
+import logoGoogle from './Icons/google.png';
 
 export default {
   limp1,
@@ -126,4 +128,6 @@ export default {
   commonSpaces,
   checkGreen,
   whiteDetails,
+  logoFacebook,
+  logoGoogle,
 };
