@@ -21,6 +21,7 @@ import NotificationCenterScreen from './../../screens/NotificationCenterScreen';
 import CollaboratorProfileScreen from './../../screens/CollaboratorProfileScreen';
 import GiveInsightsScreen from './../../screens/GiveInsightsScreen';
 import AcceptedServiceScreen from '../../screens/AcceptedServiceScreen';
+import ServiceClockScreen from '../../screens/ServiceClockScreen';
 
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import LimpizimoMenu from '../../components/LimpizimoMenu';
@@ -31,8 +32,7 @@ const Drawer = createDrawerNavigator();
 const DrawerScreen = () => {
   return (
     <Drawer.Navigator
-      // initialRouteName="ServiceDetail"
-      initialRouteName="AcceptedService"
+      initialRouteName="ServiceClock"
       screenOptions={{
         headerShown: false,
         swipeEnabled: true,
@@ -50,6 +50,7 @@ const DrawerScreen = () => {
         name="NotificationCenter"
         component={NotificationCenterScreen}
       />
+      <Drawer.Screen name="ServiceClock" component={ServiceClockScreen} />
       <Drawer.Screen name="AcceptedService" component={AcceptedServiceScreen} />
       <Drawer.Screen name="GiveInsights" component={GiveInsightsScreen} />
       <Drawer.Screen name="GeneralProblems" component={GeneralProblemsScreen} />
