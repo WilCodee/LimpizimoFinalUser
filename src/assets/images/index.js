@@ -15,6 +15,7 @@ import calendar from './Global/calendar.png';
 import clock from './Global/clock.png';
 import house from './Global/house.png';
 import office from './Global/office.png';
+import offi from './Global/offi.png';
 import otherPlace from './Global/otherPlace.png';
 import card from './Global/card.png';
 import purpleLogo from './Global/purpleLogo.png';
@@ -59,6 +60,7 @@ import kitchenRoom from './Global/kitchenRoom.png';
 import bathRoom from './Global/bathRoom.png';
 import commonSpaces from './Global/commonSpaces.png';
 import checkGreen from './Global/checkGreen.png';
+import gif from './Global/gif.png';
 import whiteDetails from './Icons/whiteDetails.svg';
 import limp1 from './Global/limp1.png';
 import logoFacebook from './Icons/facebook.png';
@@ -130,4 +132,6 @@ export default {
   whiteDetails,
   logoFacebook,
   logoGoogle,
+  offi,
+  gif,
 };
