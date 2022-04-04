@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'native-base';
 import {Image} from 'react-native';
-import Colors from '../../constants/colors';
+import colors from '../../constants/colors';
 import TextApp from '../../components/TextApp';
 import {Icon} from 'react-native-elements';
 import MenuApp from '../../components/MenuApp';
@@ -13,18 +13,26 @@ const InternalContainer = ({
   iconType,
   iconColor,
   title,
+  titleFontSize = 25,
+  titleFontWeight,
   subtitle,
+  subTitleFontSize = 15,
+  subTitleFontWeight,
+  subSubTitle,
+  subSubTitleFontSize = 10,
   subtitleTextAlign,
   image,
   collaboratorProfile,
   specialIcon,
+  childrenContainerColor = colors.mainColorLight,
+  containerColor = colors.primaryColor,
 }) => {
   return (
-    <View height="full" background={Colors.primaryColor}>
+    <View height="full" background={containerColor}>
       <MenuApp.Default title="" />
 
       <View
-        backgroundColor={Colors.primaryColor}
+        backgroundColor={containerColor}
         height={160}
         flexDirection="column"
         alignItems="center"
@@ -50,17 +58,36 @@ const InternalContainer = ({
         {iconName && (
           <Icon size={60} name={iconName} type={iconType} color={iconColor} />
         )}
-        {title && <TextApp.Default color="white" value={title} fontSize={25} />}
+        {title && (
+          <TextApp.Default
+            fontSize={titleFontSize}
+            color="white"
+            value={title}
+            fontWeight={titleFontWeight}
+          />
+        )}
         {subtitle && (
           <TextApp.Default
             color="white"
             value={subtitle}
-            fontSize={15}
+            fontSize={subTitleFontSize}
+            fontWeight={subTitleFontWeight}
             textAlign={subtitleTextAlign}
           />
         )}
+        {subSubTitle && (
+          <TextApp.Default
+            color="white"
+            value={subSubTitle}
+            fontSize={subSubTitleFontSize}
+          />
+        )}
       </View>
-      <View borderTopRadius={25} backgroundColor="white" height="full" flex={1}>
+      <View
+        borderTopRadius={25}
+        backgroundColor={childrenContainerColor}
+        height="full"
+        flex={1}>
         {children}
       </View>
     </View>
